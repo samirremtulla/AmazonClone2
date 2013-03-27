@@ -27,7 +27,6 @@ class ProductsController < ApplicationController
       redirect_to @product, notice: "Thank you for adding a product!"
     else
       render action: :new
-      #redirect_to :action => :new
     end
 
   end

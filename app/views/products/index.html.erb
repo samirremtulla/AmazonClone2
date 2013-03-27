@@ -23,7 +23,7 @@
       <tr>
         <td> <%= product.name %> </td>
         <td> <%= product.description %> </td>
-        <td> <%= product.price_in_dollars(product.price_in_cents) %> </td>
+        <td> <%= product.price_in_cents %> </td>
         <td> <%= link_to "Edit", edit_product_path(product) %></td>
         <td> <%= link_to "Show", product_path(product) %></td>
         <td> <%= link_to  "Delete", product, :confirm => "Are you sure?", :method => :delete %> </td> 
