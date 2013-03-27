@@ -42,13 +42,18 @@ class ProductsController < ApplicationController
   #submits edit to a product
   #put product/1
     @product = Product.find(params[:id])
-    @product.update_attributes(params[:product])
+    if @product.update_attributes(params[:product])
+      redirect_to products_path
+    else
+      render action: :edit
+    end
   end
 
   def destroy
   #deletes a product
     @product = Product.find(params[:id])
     @product.destroy
+    redirect_to products_path
   end
 
 end

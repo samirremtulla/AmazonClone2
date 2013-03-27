@@ -9,14 +9,14 @@
   <br/>
   <%= f.label :description %>
   <br/>
-  <%= f.text_field :description %>
+  <%= f.text_area :description %>
   <br/>
   <br/>
-  <%= f.label :price %>
+  <%= f.label :price_in_cents %>
   <br/>
   <%= f.number_field :price_in_cents %>
   <br/>
   <br/>
-  <%= f.submit %>
+  <%= f.submit "Save!"%>
 
 <% end %>
