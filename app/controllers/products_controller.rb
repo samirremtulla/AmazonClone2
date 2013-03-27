@@ -24,7 +24,7 @@ class ProductsController < ApplicationController
     @product = Product.new(params[:product])
 
     if @product.save
-      redirect_to @product, notice: "Product created successfully"
+      redirect_to @product, notice: "Thank you for adding a product!"
     else
       render action: :new
       #redirect_to :action => :new
@@ -43,7 +43,7 @@ class ProductsController < ApplicationController
   #put product/1
     @product = Product.find(params[:id])
     if @product.update_attributes(params[:product])
-      redirect_to products_path
+      redirect_to products_path, notice: "Product Saved!"
     else
       render action: :edit
     end
@@ -53,7 +53,7 @@ class ProductsController < ApplicationController
   #deletes a product
     @product = Product.find(params[:id])
     @product.destroy
-    redirect_to products_path
+    redirect_to products_path, notice: "Product Deleted!"
   end
 
 end
