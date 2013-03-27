@@ -1,31 +1,36 @@
 <h1>All Products</h1>
 
-<table>
-  <thead>
-    <tr>
-      <th>Name</th>
-      <th>Description</th>
-      <th>Price</th>
-      <th>Edit</th>
-      <th>Show</th>
-      <th>Delete</th>
-      <th></th>
-    </tr>
-  </thead>
+<%= link_to "New", new_product_path %>
+<p></p>
+
+  <table>
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Description</th>
+        <th>Price</th>
+        <th>Edit</th>
+        <th>Show</th>
+        <th>Delete</th>
+        <th></th>
+      </tr>
+    </thead>
 
 
 
-  <tbody>
-  <% @products.each do |product| %>
-    <tr>
-      <td> <%= product.name %> </td>
-      <td> <%= product.description %> </td>
-      <td> <%= product.price_in_cents %> </td>
-      <td> <%= link_to "Edit", edit_product_path(product) %></td>
-      <td> <%= link_to "Show", product_path(product) %></td>
-      <td> <%= button_to "Delete", product, :method => :delete, :class=>:destroy%> </td>
-    </tr>
-  </tbody>
-</table>
-  <%= link_to "New", new_product_path %>
-<%end%>
+    <tbody>
+    <% @products.each do |product| %>
+      <tr>
+        <td> <%= product.name %> </td>
+        <td> <%= product.description %> </td>
+        <td> <%= product.price_in_cents %> </td>
+        <td> <%= link_to "Edit", edit_product_path(product) %></td>
+        <td> <%= link_to "Show", product_path(product) %></td>
+        <td> <%= link_to  "Delete", product, :confirm => "Are you sure?", :method => :delete %> </td> 
+      </tr>
+      <%end%>
+    </tbody>
+  </table>
+
+
+
