@@ -4,6 +4,7 @@ class Product < ActiveRecord::Base
   validates_presence_of :description, :name, :price_in_cents
   #validates :name, :description, :price_in_cents, :presence => true
   validates_numericality_of :price_in_cents, :greater_than => 0
+  has_many :reviews
 
   def price_in_dollars(price_in_cents)
 
