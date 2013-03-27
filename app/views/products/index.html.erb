@@ -1,3 +1,19 @@
+<style>
+
+table{
+  font-size:15px;
+}
+
+tr{
+}
+
+th, td{
+  width:100px;
+  text-align: left;
+}
+
+</style>
+
 <h1>All Products</h1>
 
 <%= link_to "New", new_product_path %>
@@ -8,15 +24,12 @@
       <tr>
         <th>Name</th>
         <th>Description</th>
-        <th>Price</th>
-        <th>Edit</th>
-        <th>Show</th>
-        <th>Delete</th>
+        <th>Price ($)</th>
+        <th></th>
+        <th></th>
         <th></th>
       </tr>
     </thead>
-
-
 
     <tbody>
     <% @products.each do |product| %>
@@ -31,6 +44,7 @@
       <%end%>
     </tbody>
   </table>
+  <br/>
 
 
 

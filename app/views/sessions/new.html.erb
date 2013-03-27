@@ -2,11 +2,11 @@
 
 <%= form_tag sessions_path do %> <!--note form_TAG is not form_for - there is no model behind this either -->
   <p>
-    <%= label_tag :email %><br/>
+    <%= label_tag :email %>
     <%= email_field_tag :email, params[:email] %>
   </p>
   <p>
-    <%= label_tag :password %><br />
+    <%= label_tag :password %>
     <%= password_field_tag :password %>
   </p>
   <p class="button"><%= submit_tag "Login" %></p>
