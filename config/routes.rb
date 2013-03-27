@@ -1,6 +1,8 @@
 Rainforest::Application.routes.draw do
+
 resources :products
 resources :users, :only => [:new, :create]
+resources :sessions, :only => [:new, :create, :destory]
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
