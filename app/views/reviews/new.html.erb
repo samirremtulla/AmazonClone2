@@ -1,16 +1,22 @@
-<h1> Write a Review! </h1>
+<%if current_user%>
 
-<h2><%= @product.name %></h2>
+  <h1> Write a Review! </h1>
 
-<%= form_for([:product, @review]) do |f| %> <!--note that product is a symbol and not an object-->
+  <h2><%= @product.name %></h2>
 
-
-
-  <%= f.label :comment %>
-  <%= f.text_area :comment %>
+  <%= form_for([:product, @review]) do |f| %> <!--note that product is a symbol and not an object-->
 
 
-  <br/>
-  <%= f.submit %>
+
+    <%= f.label :comment %>
+    <%= f.text_area :comment %>
+
+
+    <br/>
+    <%= f.submit %>
+  <%end%>
+
+<%else%>
+  <h1> You Must Login or Signup! </h1>
 <%end%>
 

@@ -3,6 +3,14 @@
  a{
     color:white;
   }
+
+.comments{
+  padding: 8px 35px 8px 14px;
+  background-color: #fcf8e3;
+  border: 1px solid #fbeed5;
+  width: 20%;
+}
+
 </style>
 
 
@@ -22,12 +30,14 @@
 
 
   <dd><%@product.reviews.each do |review|%>
+      <div class = "comments">
+      <strong><%= review.comment %></strong>
       <br/>
-      <%= review.comment %>
-      <br/>
-      <%= review.user.name %> 
+      <em><%= review.user.name %> </em>
       <%= review.created_at.to_formatted_s(:long) %>
-      <br/>
+      <%= link_to "Delete Review", product_review_path(@product, review), :method => :delete %>
+    </div>
+    <br/>
       <% end %>
   </dd>
   <dt><div class = "btn btn-primary"><%= link_to "New Comment", new_product_review_path(@product)  %></div></dt>

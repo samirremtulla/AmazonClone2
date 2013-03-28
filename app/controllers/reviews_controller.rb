@@ -20,7 +20,7 @@ class ReviewsController < ApplicationController
     @review.product = load_product
 
     if @review.save
-      redirect_to products_path, notice: "Thank you for writing a review!"
+      redirect_to product_path(@product), notice: "Thank you for writing a review!"
     else
       render action: :new
     end      
@@ -35,7 +35,9 @@ class ReviewsController < ApplicationController
   end
 
   def destroy
-
+    @review = Review.find(params[:id])
+    @review.destroy
+    redirect_to product_path(@product), notice: "Review deleted!"
   end
 
   def load_product
