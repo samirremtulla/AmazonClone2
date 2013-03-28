@@ -19,6 +19,11 @@ class ReviewsController < ApplicationController
     @review.user_id = current_user.id
     @review.product_id = load_product.id
 
+    #can also do
+    #@ review = @product.reviews.build(params[:review])
+    #@review.user = current_user
+    #@review.product = load_product
+
     if @review.save
       redirect_to product_path(@product), notice: "Thank you for writing a review!"
     else
