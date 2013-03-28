@@ -11,6 +11,10 @@
   width: 20%;
 }
 
+.link a{
+  color:black;
+
+}
 </style>
 
 
@@ -35,7 +39,7 @@
       <br/>
       <em><%= review.user.name %> </em>
       <%= review.created_at.to_formatted_s(:long) %>
-      <%= link_to "Delete Review", product_review_path(@product, review), :method => :delete %>
+      <div class = "link"><%= link_to "Delete Review", product_review_path(@product, review), :method => :delete %></div>
     </div>
     <br/>
       <% end %>

@@ -16,13 +16,13 @@ class ReviewsController < ApplicationController
 
   def create
     @review = Review.new(params[:review])
-    @review.user = current_user
-    @review.product = load_product
+    @review.user_id = current_user.id
+    @review.product_id = load_product.id
 
     if @review.save
       redirect_to product_path(@product), notice: "Thank you for writing a review!"
     else
-      render action: :new
+      render action: :new, error: "Fail"
     end      
   end
 
