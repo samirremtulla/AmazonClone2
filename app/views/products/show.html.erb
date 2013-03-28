@@ -1,3 +1,14 @@
+<style>
+
+.comment{
+  border: 1px solid black;
+  background-color: black;
+  width: 20%;
+  color: white;
+}
+
+</style>
+
 <h1>Showing <%=@product.name%></h1>
 
 <p>
@@ -11,6 +22,22 @@
   <%= link_to "Edit", edit_product_path(@product)%>
   <%= link_to "Delete", @product, :confirm => "Are you sure?", :method => :delete %>
 </p>
+
+<p>
+    <%@product.reviews.each do |review|%>
+    <div class = "comment">
+      <%= review.comment %>
+      <br />
+      <%= review.user.name %>, 
+      <%= review.created_at %>
+    </div>
+
+      <br/>
+      <br />
+    <%end%>
+</p>
+
+
 <p>
   <%= link_to "New Comment", new_product_review_path(@product) %>
 </p>

@@ -1,14 +1,24 @@
 class ReviewsController < ApplicationController
 
+  def index
+    #show all the reviews per product
+    @product = Product.find(params[:product_id])
+    @reviews = @product.reviews
+  end
+
   def new
-    @comment = Review.new
+    @review = Review.new
+    @product = Product.find(params[:product_id])
+
   end
 
   def create
-    @comment = Review.new(params[:comment])
+    @review = Review.new(params[:review])
+    @review.user = current_user
+    @review.product = Product.find(params[:product_id])
 
-    if @comment.save
-      redirect_to products_path, notice: "Thank you for writing a comment!"
+    if @review.save
+      redirect_to products_path, notice: "Thank you for writing a review!"
     else
       render action: :new
     end      
@@ -19,11 +29,6 @@ class ReviewsController < ApplicationController
   end
 
   def update
-
-  end
-
-  def show
-    
 
   end
 
