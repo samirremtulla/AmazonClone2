@@ -1,27 +1,26 @@
-<!-- _form.html.erb -->
+<%= form_for @product, :html => { :class => 'form-horizontal' } do |f| %>
+  <div class="control-group">
+    <%= f.label :name, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :name, :class => 'text_field' %>
+    </div>
+  </div>
+  <div class="control-group">
+    <%= f.label :description, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_area :description, :class => 'text_area' %>
+    </div>
+  </div>
+  <div class="control-group">
+    <%= f.label :price_in_cents, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.number_field :price_in_cents, :class => 'number_field' %>
+    </div>
+  </div>
 
-<%= form_for @product do |f| %>
-  <% if @product.errors.any? %>
-    <div id="error_explanation">
-    <h2><%=pluralize(@product.errors.count, "error")%></h2>
-      <ul>
-        <% @product.errors.full_messages.each do |msg| %>
-          <li><%= msg %></li>
-        <% end %>
-      </ul>
-      <br/>
-  <% end %>
-
-
-  <%= f.label :name %>
-  <%= f.text_field :name %>
-  <br/>
-  <%= f.label :description %>
-  <%= f.text_area :description %>
-  <br/>
-  <%= f.label :price_in_cents %>
-  <%= f.number_field :price_in_cents %>
-  <br/>
-  <%= f.submit%>
-
+  <div class="form-actions">
+    <%= f.submit nil, :class => 'btn btn-primary' %>
+    <%= link_to t('.cancel', :default => t("helpers.links.cancel")),
+                products_path, :class => 'btn' %>
+  </div>
 <% end %>
